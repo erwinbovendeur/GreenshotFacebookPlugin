@@ -36,51 +36,33 @@ namespace GreenshotFacebookPlugin {
 	/// </summary>
 	[Export(typeof(IGreenshotPlugin))]
 	[ExportMetadata("name", "Facebook plug-in")]
-    public class FacebookPlugin : IGreenshotPlugin
-    {
+	public class FacebookPlugin : AbstractPlugin {
 		private static readonly log4net.ILog LOG = log4net.LogManager.GetLogger(typeof(FacebookPlugin));
 		private static FacebookConfiguration config;
 		private IGreenshotHost host;
 		private ComponentResourceManager resources;
 		private ToolStripMenuItem itemPlugInConfig;
 
-        public void Dispose()
-        {
-            if (itemPlugInConfig != null)
-            {
-                itemPlugInConfig.Dispose();
-                itemPlugInConfig = null;
-            }
-        }
-
-		protected void Dispose(bool disposing) {
-			if (disposing)
-			{
-			    Dispose();
+		protected override void Dispose(bool disposing) {
+			if (disposing) {
+				if (itemPlugInConfig != null) {
+					itemPlugInConfig.Dispose();
+					itemPlugInConfig = null;
+				}
 			}
 		}
 
-	    public IEnumerable<IDestination> Destinations() {
+	    public override IEnumerable<IDestination> Destinations() {
 			yield return new FacebookDestination(this, null);
 		}
-
-	    public IEnumerable<IProcessor> Processors()
-	    {
-	        return null;
-	    }
-
-	    public bool Initialize(IGreenshotHost pluginHost, PluginAttribute plugin)
-        {
-            return Initialize(pluginHost, new Dictionary<string, object>());
-        }
-
+        
 		/// <summary>
 		/// Implementation of the IGreenshotPlugin.Initialize
 		/// </summary>
 		/// <param name="pluginHost">Use the IGreenshotPluginHost interface to register events</param>
 		/// <param name="metadata">IDictionary&lt;string, object&gt;</param>
 		/// <returns>true if plugin is initialized, false if not (doesn't show)</returns>
-		public bool Initialize(IGreenshotHost pluginHost, IDictionary<string, object> metadata) {
+		public override bool Initialize(IGreenshotHost pluginHost, IDictionary<string, object> metadata) {
 			host = pluginHost;
 
 			// Get configuration
@@ -104,7 +86,7 @@ namespace GreenshotFacebookPlugin {
 			}
 		}
 
-		public void Shutdown() {
+		public override void Shutdown() {
 			LOG.Debug("Facebook Plugin shutdown.");
 			Language.LanguageChanged -= OnLanguageChanged;
 		}
@@ -112,7 +94,7 @@ namespace GreenshotFacebookPlugin {
 		/// <summary>
 		/// Implementation of the IPlugin.Configure
 		/// </summary>
-		public void Configure() {
+		public override void Configure() {
 			config.ShowConfigDialog();
 		}
 		

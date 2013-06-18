@@ -62,11 +62,12 @@ namespace GreenshotFacebookPlugin {
             return oAuth;
         }
 
-		/// <summary>
-		/// Do the actual upload to Facebook
-		/// </summary>
-		/// <returns>FacebookResponse</returns>
-		public static FacebookInfo UploadToFacebook(ISurface surfaceToUpload, SurfaceOutputSettings outputSettings, string title, string filename)
+	    /// <summary>
+	    /// Do the actual upload to Facebook
+	    /// </summary>
+	    /// <returns>FacebookResponse</returns>
+	    public static FacebookInfo UploadToFacebook(ISurface surfaceToUpload, SurfaceOutputSettings outputSettings,
+	                                                string title, string filename)
 	    {
 	        return UploadToFacebook(surfaceToUpload, outputSettings, title, filename, false);
 	    }
@@ -95,19 +96,15 @@ namespace GreenshotFacebookPlugin {
 		    JsonObject result;
 		    try
 		    {
-                result = (JsonObject) client.Post("me/photos", param);
-            }
-            catch (FacebookOAuthException ex)
-            {
-                if (!repeated && ex.ErrorCode == 190) // App no long authorized, reauthorize if possible
-                {
-                    config.Token = null;
-                    return UploadToFacebook(surfaceToUpload, outputSettings, title, filename, true);
-                }
-                throw;
-            }
-            catch (Exception ex)
-            {
+		        result = (JsonObject) client.Post("me/photos", param);
+		    } catch (FacebookOAuthException ex) {
+		        if (!repeated && ex.ErrorCode == 190) // App no long authorized, reauthorize if possible
+		        {
+		            config.Token = null;
+		            return UploadToFacebook(surfaceToUpload, outputSettings, title, filename, true);
+		        }
+		        throw;
+		    } catch (Exception ex) {
 				LOG.Error("Error uploading to Facebook.", ex);
 				throw;
 			}
