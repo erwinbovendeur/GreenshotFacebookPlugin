@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\CommonProject.properties" />
+  <PropertyGroup>
+    <ProjectGuid>{240440CD-C54C-4FA0-ADA2-96AD2572894F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GreenshotFacebookPlugin</RootNamespace>
+    <AssemblyName>GreenshotFacebookPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Greenshot\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\AuthorizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuthorizeForm.Designer.cs">
+      <DependentUpon>AuthorizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FacebookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacebookDestination.cs" />
+    <Compile Include="FacebookInfo.cs" />
+    <Compile Include="FacebookPlugin.cs" />
+    <Compile Include="FacebookConfiguration.cs" />
+    <Compile Include="FacebookCredentials.cs" />
+    <Compile Include="FacebookUtils.cs" />
+    <Compile Include="LanguageKeys.cs" />
+    <Compile Include="OAuth\CombinationStream.cs" />
+    <Compile Include="OAuth\DateTimeConvertor.cs" />
+    <Compile Include="OAuth\FacebookApiEventArgs.cs" />
+    <Compile Include="OAuth\FacebookApiException.cs" />
+    <Compile Include="OAuth\FacebookBatchParameter.cs" />
+    <Compile Include="OAuth\FacebookClient.cs" />
+    <Compile Include="OAuth\FacebookClient.Async.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.Batch.Sync.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.Batch.Async.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.Sync.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.SignedRequest.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.Subscription.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookClient.OAuthResult.cs">
+      <DependentUpon>OAuth\FacebookClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookMediaObject.cs" />
+    <Compile Include="OAuth\FacebookMediaStream.cs" />
+    <Compile Include="OAuth\FacebookOAuthException.cs">
+      <DependentUpon>OAuth\FacebookApiException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookApiLimitException.cs">
+      <DependentUpon>OAuth\FacebookApiException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\FacebookOAuthResult.cs" />
+    <Compile Include="OAuth\FacebookUploadProgressChangedEventArgs.cs">
+      <DependentUpon>OAuth\FacebookApiEventArgs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth\GlobalSuppressions.cs" />
+    <Compile Include="OAuth\HttpHelper.cs" />
+    <Compile Include="OAuth\HttpMethod.cs" />
+    <Compile Include="OAuth\SimpleJson.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AuthorizeForm.resx">
+      <DependentUpon>AuthorizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Languages\language_Facebookplugin-en-US.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Include="Languages\language_Facebookplugin-nl-NL.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\AssemblyInfo.cs.template" />
+    <EmbeddedResource Include="FacebookPlugin.resx">
+      <DependentUpon>FacebookPlugin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GreenshotPlugin\GreenshotPlugin.csproj">
+      <Project>{5b924697-4dcd-4f98-85f1-105cb84b7341}</Project>
+      <Name>GreenshotPlugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+if exist "$(ProjectDir)FacebookCredentials.private.cs" (
+   rename "$(ProjectDir)FacebookCredentials.cs" "FacebookCredentials.orig.cs"
+   rename "$(ProjectDir)FacebookCredentials.private.cs" "FacebookCredentials.cs"
+)
+"$(SolutionDir)\tools\TortoiseSVN\SubWCRev.exe" "$(ProjectDir)\" "$(ProjectDir)\Properties\AssemblyInfo.cs.template" "$(ProjectDir)\Properties\AssemblyInfo.cs"
+	</PreBuildEvent>
+    <PostBuildEvent>
+if exist "$(ProjectDir)FacebookCredentials.orig.cs" (
+   rename "$(ProjectDir)FacebookCredentials.cs" "FacebookCredentials.private.cs"
+   rename "$(ProjectDir)FacebookCredentials.orig.cs" "FacebookCredentials.cs"
+)
+mkdir "$(SolutionDir)bin\$(Configuration)\Plugins\$(ProjectName)"
+copy "$(ProjectDir)bin\$(Configuration)\$(TargetFileName)" "$(SolutionDir)bin\$(Configuration)\Plugins\$(ProjectName)\*.gsp"
+copy "$(ProjectDir)bin\$(Configuration)\$(ProjectName).pdb" "$(SolutionDir)bin\$(Configuration)\Plugins\$(ProjectName)\"
+mkdir "$(SolutionDir)bin\$(Configuration)\Languages\Plugins\$(ProjectName)"
+copy "$(ProjectDir)\Languages\*.xml" "$(SolutionDir)bin\$(Configuration)\Languages\Plugins\$(ProjectName)\"
+	</PostBuildEvent>
+  </PropertyGroup>
+</Project>

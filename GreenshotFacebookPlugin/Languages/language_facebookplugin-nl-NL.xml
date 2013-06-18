@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language description="Nederlands" ietf="nl-NL" version="1.0.0">
+  <resources>
+	<resource name="upload_menu_item">
+		Naar Facebook uploaden
+	</resource>
+	<resource name="settings_title">
+    Facebook instellingen
+  </resource>
+	<resource name="upload_success">
+    Het uploaden naar Facebook is geslaagd!
+  </resource>
+	<resource name="upload_failure">
+    Tijdens het uploaden naar Facebook is een fout opgetreden:
+  </resource>
+	<resource name="communication_wait">
+    Data overdraging naar Facebook, wachten AUB...
+  </resource>
+	<resource name="configure">
+    Facebook Instellingen
+  </resource>
+    <resource name="not_on_timeline">
+      Plaats de afbeeldingen niet op mijn tijdslijn
+    </resource>
+    <resource name="include_title">
+      Voeg de titel toe als omschrijving
+    </resource>
+  </resources>
+</language>

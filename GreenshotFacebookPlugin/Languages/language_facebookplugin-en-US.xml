@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language description="English" ietf="en-US" version="1.0.0">
+  <resources>
+	<resource name="upload_menu_item">
+		Upload to Facebook
+	</resource>
+	<resource name="settings_title">
+		Facebook settings
+	</resource>
+	<resource name="OK">
+		OK
+	</resource>
+	<resource name="CANCEL">
+		Cancel
+	</resource>
+	<resource name="upload_success">
+		Successfully uploaded image to Facebook!
+	</resource>
+	<resource name="upload_failure">
+		An error occured while uploading to Facebook:
+	</resource>
+	<resource name="communication_wait">
+		Communicating with Facebook. Please wait...
+	</resource>
+	<resource name="configure">
+    Configure Facebook
+  </resource>
+    <resource name="not_on_timeline">
+      Do not post the images on my timeline
+    </resource>
+    <resource name="include_title">
+      Include the capture title as description
+    </resource>
+  </resources>
+</language>
